@@ -2,15 +2,15 @@
 
 # 1. Private S3 bucket
 resource "aws_s3_bucket" "t0531M_Cl" {
-  bucket = "my-private-bucket-example"
+  bucket = "runweb-bucket"
 
 }
 
 resource "aws_s3_bucket_public_access_block" "block" {
   bucket                  = aws_s3_bucket.t0531M_Cl.id
-  block_public_acls       = true
+  block_public_acls       = false
   block_public_policy     = true
-  ignore_public_acls      = true
+  ignore_public_acls      = false
   restrict_public_buckets = true
 }
 
@@ -104,3 +104,4 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
     ]
   })
 }
+
